@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d36dpsarr2a2k"]
+
+[ext_resource type="Texture2D" uid="uid://chgqimvh7rdh6" path="res://assets/Familiar Looking Rocket.png" id="1_0glrm"]
+[ext_resource type="Script" path="res://scenes/WinTrigger.gd" id="1_27k6y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aiink"]
+size = Vector2(301, 485)
+
+[node name="WinTrigger" type="Area2D"]
+script = ExtResource("1_27k6y")
+sceneName = "WinScreen"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_aiink")
+
+[node name="FamiliarLookingRocket" type="Sprite2D" parent="."]
+texture = ExtResource("1_0glrm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

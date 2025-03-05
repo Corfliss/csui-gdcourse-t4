@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi1k47ufl3t8w"]
+
+[ext_resource type="Texture2D" uid="uid://bivk5n8i3vnqc" path="res://assets/kenney_platformerpack/PNG/Enemies/fishBlue.png" id="1_cyy23"]
+[ext_resource type="Script" path="res://scenes/fish.gd" id="1_kg2il"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_us2yd"]
+radius = 25.4
+height = 77.46
+
+[node name="RigidBody2D2" type="RigidBody2D" groups=["obstacles"]]
+position = Vector2(276, -192)
+collision_layer = 2
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_kg2il")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 15.34)
+shape = SubResource("CapsuleShape2D_us2yd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -3.14159
+texture = ExtResource("1_cyy23")
+
+[node name="FishCollision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="FishCollision"]
+position = Vector2(0, 15.34)
+scale = Vector2(1.1, 1.1)
+shape = SubResource("CapsuleShape2D_us2yd")
